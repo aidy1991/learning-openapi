@@ -1,0 +1,13 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  description: This is sample API
+  version: 0.0.1
+servers:
+  - url: http://localhost:4010
+    description: local mock on docker
+paths:
+  /users:
+    $ref: "components/paths/users.yml"
+  /pets:
+    $ref: "components/paths/pets.yml"

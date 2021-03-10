@@ -1,0 +1,26 @@
+{
+  "name": "openapi",
+  "version": "1.0.0",
+  "description": "Leaning OpenAPI",
+  "main": "index.js",
+  "scripts": {
+    "start:mock": "docker run --init -v $(pwd):/var -p 4010:4010 stoplight/prism:4 mock -h 0.0.0.0 /var/openapi.yml",
+    "build:openapi": "swagger-cli bundle -r openapi.yml -o build/openapi.json",
+    "build:html": "npm run build:openapi && redoc-cli bundle build/openapi.json --options.menuToggle --options.pathInMiddlePanel  -o build/redoc-static.html && open build/redoc-static.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aidy1991/learning-openapi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aidy1991/learning-openapi/issues"
+  },
+  "homepage": "https://github.com/aidy1991/learning-openapi#readme",
+  "dependencies": {
+    "redoc-cli": "^0.10.2",
+    "swagger-cli": "^4.0.4"
+  }
+}
