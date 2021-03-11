@@ -5,7 +5,9 @@ info:
   version: 0.0.1
 servers:
   - url: http://localhost:4010
-    description: local mock on docker
+    description: local mock on docker by prism
+  - url: http://localhost:5000
+    description: local mock by connexion
 paths:
   /users:
     $ref: "components/paths/users.yml"
