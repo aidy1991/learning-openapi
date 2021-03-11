@@ -5,13 +5,15 @@
   "description": "Leaning OpenAPI",
   "main": "index.js",
   "scripts": {
-    "start:mock": "docker run --init -v $(pwd):/var -p 4010:4010 stoplight/prism:4 mock -h 0.0.0.0 /var/openapi.yml",
-    "build": "swagger-cli bundle -r openapi.yml -o build/openapi.json",
-    "build:html": "npm run build && redoc-cli bundle build/openapi.json --options.menuToggle --options.pathInMiddlePanel  -o build/index.html",
+    "start:server": "npm run build && poetry run python index.py",
+    "start:mock:prism": "docker run --init -v $(pwd):/var -p 4010:4010 stoplight/prism:4 mock -h 0.0.0.0 /var/openapi.yml",
+    "start:mock:connexion": "npm run build && poetry run connexion run build/openapi.yml --mock=all",
+    "build": "swagger-cli bundle -r openapi.yml -o build/openapi.yml",
+    "build:html": "npm run build && redoc-cli bundle build/openapi.yml --options.menuToggle --options.pathInMiddlePanel  -o build/index.html",
     "open:html": "npm run build:html && open build/index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "npm run build:html && gh-pages -d build",
-    "generate:ts": "rm -r ./api && npm run build && openapi2aspida -i build/openapi.json"
+    "generate:ts": "rm -r ./api && npm run build && openapi2aspida -i build/openapi.yml"
   },
   "repository": {
     "type": "git",

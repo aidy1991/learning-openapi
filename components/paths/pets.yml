@@ -1,6 +1,6 @@
 get:
+  operationId: controllers.pets.get
   summary: List all pets
-  operationId: listPets
   tags:
     - pets
   parameters:

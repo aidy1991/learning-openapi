@@ -14,6 +14,7 @@
   "paths": {
     "/users": {
       "get": {
+        "operationId": "controllers.users.get",
         "summary": "Returns a list of users.",
         "tags": [
           "users"
@@ -44,8 +45,8 @@
     },
     "/pets": {
       "get": {
+        "operationId": "controllers.pets.get",
         "summary": "List all pets",
-        "operationId": "listPets",
         "tags": [
           "pets"
         ],
