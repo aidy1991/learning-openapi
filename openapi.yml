@@ -4,6 +4,8 @@ info:
   description: This is sample API
   version: 0.0.1
 servers:
+  - url: http://localhost:10080
+    description: local dev server
   - url: http://localhost:4010
     description: local mock on docker by prism
   - url: http://localhost:5000

@@ -1,5 +1,5 @@
 import connexion
-from controllers.users import get
+
 
 def setup_app():
     app = connexion.FlaskApp(
@@ -8,6 +8,9 @@ def setup_app():
         port=10080,
         specification_dir='./build',
         debug=True,
+        options={
+            'swagger_ui': True,
+        },
     )
     app.add_api(
         'openapi.yml',
