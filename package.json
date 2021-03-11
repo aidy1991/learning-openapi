@@ -10,7 +10,8 @@
     "build:html": "npm run build && redoc-cli bundle build/openapi.json --options.menuToggle --options.pathInMiddlePanel  -o build/index.html",
     "open:html": "npm run build:html && open build/index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "npm run build:html && gh-pages -d build"
+    "deploy": "npm run build:html && gh-pages -d build",
+    "generate:ts": "rm -r ./api && npm run build && openapi2aspida -i build/openapi.json"
   },
   "repository": {
     "type": "git",
@@ -23,8 +24,18 @@
   },
   "homepage": "https://github.com/aidy1991/learning-openapi#readme",
   "dependencies": {
+    "@aspida/fetch": "^1.6.3",
+    "@aspida/node-fetch": "^1.6.3",
+    "@aspida/swr": "^1.6.3",
+    "@openapitools/openapi-generator-cli": "^2.2.1",
+    "@types/node-fetch": "^2.5.8",
     "gh-pages": "^3.1.0",
+    "openapi2aspida": "^0.15.3",
     "redoc-cli": "^0.10.2",
-    "swagger-cli": "^4.0.4"
-  }
+    "swagger-cli": "^4.0.4",
+    "swr": "^0.5.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3"
+  },
+  "devDependencies": {}
 }
